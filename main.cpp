@@ -83,7 +83,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		{10.0f,-10.0f,0.0f},
 		{-10.0f,-10.0f,0.0f},
 	};
-	
+
 
 	Vector3 rotate{ 0.0f,0.0f,0.0f };
 	Vector3 translate{ 0.0f,0.0f,0.0f };
@@ -95,6 +95,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Vector3 v1{ 1.2f,-3.9f,2.5f };
 	Vector3 v2{ 2.8f,0.4f,-1.3f };
 	Vector3 cross;
+
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -114,7 +115,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///===========================================================
 
 		cross = Cross(v1, v2);
-		VectorScreenPrintf(0, 0, cross, "Cross");
 
 
 		///===========================================================
@@ -160,7 +160,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			screenVertices[i] = Transform(ndcVertex, viewportMatrix);
 		}
 
-
 		///
 		/// ↑更新処理ここまで
 		///
@@ -168,6 +167,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 		/// ↓描画処理ここから
 		///
+
+		VectorScreenPrintf(0, 0, cross, "Cross");
 
 		Novice::DrawTriangle(
 			int(screenVertices[0].x), int(screenVertices[0].y),
